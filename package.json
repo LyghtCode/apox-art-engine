@@ -15,12 +15,13 @@
     "build": "node index.js",
     "generate": "node index.js",
     "rarity": "node utils/rarity.js",
-    "preview": "node utils/preview.js",
     "pixelate": "node utils/pixelate.js",
-    "update_info": "node utils/update_info.js",
-    "preview_gif": "node utils/preview_gif.js",
-    "generate_metadata": "node utils/generate_metadata.js",
-    "generate_thirdweb": "node utils/generate_thirdweb.js"
+    "preview": "node utils/preview.js",
+    "preview:gif": "node utils/preview_gif.js",
+    "meta:update": "node utils/metadata_update.js",
+    "meta:generate": "node utils/metadata_generate.js",
+    "thirdweb": "node utils/thirdweb_prepare",
+    "thirdweb:prepare": "node utils/thirdweb_prepare.js"
   },
   "contributors": [
     {

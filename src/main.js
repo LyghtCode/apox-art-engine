@@ -1,6 +1,5 @@
 const basePath = process.cwd();
-const { NETWORK } = require(`${basePath}/constants/network.js`);
-const fs = require("fs");
+const fs = require("fs-extra");
 const sha1 = require(`${basePath}/node_modules/sha1`);
 const { createCanvas, loadImage } = require(`${basePath}/node_modules/canvas`);
 const buildDir = `${basePath}/build`;
@@ -19,8 +18,6 @@ const {
   extraMetadata,
   text,
   namePrefix,
-  network,
-  solanaMetadata,
   startEditionFrom,
   isLayerNameFileNameAsIs,
   gif,
@@ -38,7 +35,7 @@ let hashlipsGiffer = null;
 
 const buildSetup = () => {
   if (fs.existsSync(buildDir)) {
-    fs.rmdirSync(buildDir, { recursive: true });
+    fs.removeSync(buildDir, { recursive: true });
   }
   fs.mkdirSync(buildDir);
   fs.mkdirSync(`${buildDir}/json`);
@@ -144,32 +141,6 @@ const addMetadata = (_dna, _edition) => {
     attributes: attributesList,
     compiler: "The thirdweb Art Engine",
   };
-  if (network == NETWORK.sol) {
-    tempMetadata = {
-      //Added metadata for solana
-      name: tempMetadata.name,
-      symbol: solanaMetadata.symbol,
-      description: tempMetadata.description,
-      //Added metadata for solana
-      seller_fee_basis_points: solanaMetadata.seller_fee_basis_points,
-      image: `${_edition}.png`,
-      //Added metadata for solana
-      external_url: solanaMetadata.external_url,
-      edition: _edition,
-      ...extraMetadata,
-      attributes: tempMetadata.attributes,
-      properties: {
-        files: [
-          {
-            uri: `${_edition}.png`,
-            type: "image/png",
-          },
-        ],
-        category: "image",
-        creators: solanaMetadata.creators,
-      },
-    };
-  }
   metadataList.push(tempMetadata);
   attributesList = [];
 };
@@ -346,11 +317,7 @@ const startGeneration = async () => {
   let abstractedIndexes = [];
   for (
     let i =
-      network == NETWORK.sol
-        ? startEditionFrom > 1
-          ? startEditionFrom
-          : 0
-        : startEditionFrom;
+      startEditionFrom;
     i <=
     layerConfigurations[layerConfigurations.length - 1].growEditionSizeTo +
       (startEditionFrom > 1 && startEditionFrom);

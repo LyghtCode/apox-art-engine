@@ -22,18 +22,38 @@ Let's get started with the instant setup and build. Proceed to the requirements 
 
 These are the few important improvements to the forked version of art engine that will work 100% with thirdweb NFT project deployments.
 
+### ✅ New Script Command
+
+New command for common art engine utilties.
+
+#### 📜 Preview GIF
+
+Before: `$ yarn preview_gif`
+**Now**: `$ yarn preview:gif`
+
+#### 📜 Update Info
+
+Before: `$ yarn update_info`
+**Now**: `$ yarn meta:update`
+
 ### ✅ Generate thirdweb Folder
 
-You can now generate a folder where you can use to drag and drop it to the thirdweb dashboard. You can only run this after you generated your arts via `yarn generate` command. Use the command below to generate a folder for you to use in thirdweb dashboard.
+You can now generate a folder where you can use to drag and drop it to the thirdweb dashboard. You can only run this after you generated your arts using `yarn build` or `yarn generate` command. Use the command below to generate a folder for you prepare to use in thirdweb dashboard.
 
 ```bash
-$ yarn generate_thirdweb
+yarn thirdweb
+```
+
+or
+
+```bash
+yarn thirdweb:prepare
 ```
 
 If you want to generate the art and create a folder for thirdweb at the same time follow the command below.
 
 ```bash
-$ yarn generate && yarn generate_thirdweb
+yarn generate && yarn thirdweb
 ```
 
 > **Why not add this to script command?**

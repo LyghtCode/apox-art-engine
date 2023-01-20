@@ -6,7 +6,7 @@ const namePrefix = "Your Collection";
 const description = "Remember to replace this description";
 const startCountFrom = 0;
 // optional, change hasBaseUri to true if your  images pre-uploaded to IPFS
-const hasBaseUri = false;
+const hasBaseUri = true;
 const baseUri = "ipfs://cid-here";
 // optional, is the image filename case sensitive? 
 // default: false, meaning your file name will be capitalized e.g. "Awesome" instead of "awesome"
