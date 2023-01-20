@@ -24,17 +24,15 @@ These are the few important improvements to the forked version of art engine tha
 
 ### ✅ New Script Command
 
-New command for common art engine utilties.
+New script command for common art engine utilities.
 
 #### 📜 Preview GIF
 
-Before: `$ yarn preview_gif`
-**Now**: `$ yarn preview:gif`
+Before: `$ yarn preview_gif` **Now**: `$ yarn preview:gif`
 
 #### 📜 Update Info
 
-Before: `$ yarn update_info`
-**Now**: `$ yarn meta:update`
+Before: `$ yarn update_info` **Now**: `$ yarn meta:update`
 
 ### ✅ Generate thirdweb Folder
 
