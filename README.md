@@ -34,6 +34,14 @@ Before: `$ yarn preview_gif` **Now**: `$ yarn preview:gif`
 
 Before: `$ yarn update_info` **Now**: `$ yarn meta:update`
 
+### ✅ Upload Images to IPFS
+
+You can now upload your generated image assets directly to IPFS and add your CID directly to your existing metadata. So all you have to do is to upload your `_metadata.json` file to the thirdweb dashboard. That's it! _(25GB Upload Limit Size)_
+
+```bash
+yarn thirdweb:upload
+```
+
 ### ✅ Generate thirdweb Folder
 
 You can now generate a folder where you can use to drag and drop it to the thirdweb dashboard. You can only run this after you generated your arts using `yarn build` or `yarn generate` command. Use the command below to generate a folder for you prepare to use in thirdweb dashboard.
@@ -108,6 +116,14 @@ const isLayerNameFileNameAsIs = false;
 
 > input: "**AWESOME**#1.png" as layer image filename.
 > output: "_Awesome_" as trait value.
+
+### ✅ Reset Build/Generation
+
+Added the script command to reset the tool. It removes only the build and temp folders.
+
+```bash
+yarn reset
+```
 
 ### ✅ NFT Dummy Assets
 

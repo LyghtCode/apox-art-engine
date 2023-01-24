@@ -110,3 +110,6 @@ dist
 
 # OSX
 .DS_Store
+
+# custom
+.temp/

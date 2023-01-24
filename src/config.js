@@ -6,7 +6,7 @@ const namePrefix = "Your Collection";
 const description = "Remember to replace this description";
 const startCountFrom = 0;
 // optional, change hasBaseUri to true if your  images pre-uploaded to IPFS
-const hasBaseUri = true;
+const hasBaseUri = false;
 const baseUri = "ipfs://cid-here";
 // optional, is the image filename case sensitive? 
 // default: false, meaning your file name will be capitalized e.g. "Awesome" instead of "awesome"
@@ -15,7 +15,7 @@ const isLayerNameFileNameAsIs = false;
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
-    growEditionSizeTo: 5,
+    growEditionSizeTo: 15,
     layersOrder: [
       { name: "background", options: { displayName: "Background" } },
       { name: "eyeball", options: { displayName: "Eyeball" } },

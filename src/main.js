@@ -4,6 +4,7 @@ const sha1 = require(`${basePath}/node_modules/sha1`);
 const { createCanvas, loadImage } = require(`${basePath}/node_modules/canvas`);
 const buildDir = `${basePath}/build`;
 const layersDir = `${basePath}/layers`;
+const tempDir = `${basePath}/.temp`;
 const {
   format,
   hasBaseUri,
@@ -34,12 +35,23 @@ const HashlipsGiffer = require(`${basePath}/modules/HashlipsGiffer.js`);
 let hashlipsGiffer = null;
 
 const buildSetup = () => {
+
+  // if build folder exist, remove it
   if (fs.existsSync(buildDir)) {
     fs.removeSync(buildDir, { recursive: true });
   }
+
+  // if temp folder exists, remove it
+  if (fs.existsSync(tempDir)) {
+    fs.removeSync(tempDir, { recursive: true });
+  }
+
+  // create necessary folders
   fs.mkdirSync(buildDir);
   fs.mkdirSync(`${buildDir}/json`);
   fs.mkdirSync(`${buildDir}/images`);
+
+  // if gif will be exported, create folder
   if (gif.export) {
     fs.mkdirSync(`${buildDir}/gifs`);
   }
@@ -315,6 +327,7 @@ const startGeneration = async () => {
   let editionCount = 1;
   let failedCount = 0;
   let abstractedIndexes = [];
+
   for (
     let i =
       startEditionFrom;
