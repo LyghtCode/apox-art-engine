@@ -36,7 +36,7 @@ const storage = new ThirdwebStorage();
         }
         
         // list all files inside build image folder
-        files.forEach(function (file) {
+        files.forEach((file) => {
             imageFiles.push({ name: file, data: readFileSync(`${imagesPath}/${file}`) })
         });
 
