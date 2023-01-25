@@ -38,6 +38,7 @@
     "@thirdweb-dev/sdk": "^3.6.10",
     "@thirdweb-dev/storage": "^1.0.6",
     "canvas": "^2.8.0",
+    "file-split-to-directory": "^2.2.0",
     "fs-extra": "^10.1.0",
     "gif-encoder-2": "^1.0.5",
     "sha1": "^1.1.1"
