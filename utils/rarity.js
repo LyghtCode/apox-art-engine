@@ -1,10 +1,5 @@
 const basePath = process.cwd();
 const fs = require("fs");
-const layersDir = `${basePath}/layers`;
-
-const { layerConfigurations } = require(`${basePath}/src/config.js`);
-
-const { getElements } = require("../src/main.js");
 
 // read json data
 let rawdata = fs.readFileSync(`${basePath}/build/json/_metadata.json`);
@@ -13,49 +8,36 @@ let editionSize = data.length;
 
 let rarityData = [];
 
-// intialize layers to chart
-layerConfigurations.forEach((config) => {
-  let layers = config.layersOrder;
-
-  layers.forEach((layer) => {
-    // get elements for each layer
-    let elementsForLayer = [];
-    let elements = getElements(`${layersDir}/${layer.name}/`);
-    elements.forEach((element) => {
-      // just get name and weight for each element
-      let rarityDataElement = {
-        trait: element.name,
-        weight: element.weight.toFixed(0),
-        occurrence: 0, // initialize at 0
-      };
-      elementsForLayer.push(rarityDataElement);
-    });
-    let layerName =
-      layer.options?.["displayName"] != undefined
-        ? layer.options?.["displayName"]
-        : layer.name;
-    // don't include duplicate layers
-    if (!rarityData.includes(layer.name)) {
-      // add elements for each layer to chart
-      rarityData[layerName] = elementsForLayer;
-    }
-  });
-});
-
 // fill up rarity chart with occurrences from metadata
+// working rarity code here: https://github.com/HashLips/hashlips_art_engine/issues/1025#issuecomment-1122721584
 data.forEach((element) => {
   let attributes = element.attributes;
   attributes.forEach((attribute) => {
     let traitType = attribute.trait_type;
     let value = attribute.value;
+    let found = false;
 
-    let rarityDataTraits = rarityData[traitType];
-    rarityDataTraits.forEach((rarityDataTrait) => {
-      if (rarityDataTrait.trait == value) {
-        // keep track of occurrences
-        rarityDataTrait.occurrence++;
-      }
-    });
+    if (rarityData[traitType]) {
+      let rarityDataTraits = rarityData[traitType];
+      rarityDataTraits.forEach((rarityDataTrait) => {
+        if (rarityDataTrait.trait == value) {
+          // keep track of occurrences
+          rarityDataTrait.occurrence++;
+          found = true;
+        }
+      });
+    } else {
+      rarityData[traitType] = [];
+    }
+
+    if (!found) {
+      // just get name for each element
+      let rarityDataElement = {
+        trait: value,
+        occurrence: 1, // initialize at 1
+      };
+      rarityData[traitType].push(rarityDataElement);
+    }
   });
 });
 
@@ -73,10 +55,19 @@ for (var layer in rarityData) {
 }
 
 // print out rarity data
+// changes from: https://github.com/HashLips/hashlips_art_engine/pull/513/commits/b819e0af4bfcbc10dfa9b3b5e642fd38287b6907
 for (var layer in rarityData) {
-  console.log(`Trait type: ${layer}`);
-  for (var trait in rarityData[layer]) {
-    console.log(rarityData[layer][trait]);
+  if (process.argv.length <= 2) {
+    console.log(`Trait type: ${layer}`);
+    for (var trait in rarityData[layer]) {
+      console.log(rarityData[layer][trait]);
+    }
+    console.log();
   }
-  console.log();
+  else {
+    if (process.argv[2] == "table") {
+      console.log(`Trait type: ${layer}`);
+      console.table(rarityData[layer]);
+    }
+  }
 }

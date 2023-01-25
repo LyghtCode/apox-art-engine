@@ -22,18 +22,44 @@ Let's get started with the instant setup and build. Proceed to the requirements 
 
 These are the few important improvements to the forked version of art engine that will work 100% with thirdweb NFT project deployments.
 
-### ✅ Generate thirdweb Folder
+### ✅ New Script Command
 
-You can now generate a folder where you can use to drag and drop it to the thirdweb dashboard. You can only run this after you generated your arts via `yarn generate` command. Use the command below to generate a folder for you to use in thirdweb dashboard.
+New script command for common art engine utilities.
+
+#### 📜 Preview GIF
+
+Before: `$ yarn preview_gif` **Now**: `$ yarn preview:gif`
+
+#### 📜 Update Info
+
+Before: `$ yarn update_info` **Now**: `$ yarn meta:update`
+
+### ✅ Upload Images to IPFS
+
+You can now upload your generated image assets directly to IPFS and add your CID directly to your existing metadata. So all you have to do is to upload your `_metadata.json` file to the thirdweb dashboard. That's it! _(25GB Upload Limit Size)_
 
 ```bash
-$ yarn generate_thirdweb
+yarn thirdweb:upload
+```
+
+### ✅ Generate thirdweb Folder
+
+You can now generate a folder where you can use to drag and drop it to the thirdweb dashboard. You can only run this after you generated your arts using `yarn build` or `yarn generate` command. Use the command below to generate a folder for you prepare to use in thirdweb dashboard.
+
+```bash
+yarn thirdweb
+```
+
+or
+
+```bash
+yarn thirdweb:prepare
 ```
 
 If you want to generate the art and create a folder for thirdweb at the same time follow the command below.
 
 ```bash
-$ yarn generate && yarn generate_thirdweb
+yarn generate && yarn thirdweb
 ```
 
 > **Why not add this to script command?**
@@ -90,6 +116,14 @@ const isLayerNameFileNameAsIs = false;
 
 > input: "**AWESOME**#1.png" as layer image filename.
 > output: "_Awesome_" as trait value.
+
+### ✅ Reset Build/Generation
+
+Added the script command to reset the tool. It removes only the build and temp folders.
+
+```bash
+yarn reset
+```
 
 ### ✅ NFT Dummy Assets
 
