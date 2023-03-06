@@ -1,4 +1,9 @@
-# The thirdweb Art Engine [![Mentioned in Awesome thirdweb](https://awesome.re/mentioned-badge-flat.svg)](https://github.com/warengonzaga/awesome-thirdweb)
+# The thirdweb Art Engine (Legacy) [![Mentioned in Awesome thirdweb](https://awesome.re/mentioned-badge-flat.svg)](https://github.com/warengonzaga/awesome-thirdweb)
+
+> **Note**: I'm gonna archive and close this project as I'm working on a new version of it complete from scratch using the Art Engine v2 by HashLips Labs.
+>
+> **Please use the project link below**. 👇
+> <https://github.com/warengonzaga/thirdweb-art-engine>
 
 [![creator](https://img.shields.io/badge/by-Waren%20Gonzaga-blue.svg?longCache=true&style=flat-square)](https://github.com/warengonzaga) [![release](https://img.shields.io/github/release/warengonzaga/thirdweb-art-engine.svg?style=flat-square)](https://github.com/warengonzaga/thirdweb-art-engine/releases) [![star](https://img.shields.io/github/stars/warengonzaga/thirdweb-art-engine.svg?style=flat-square)](https://github.com/warengonzaga/thirdweb-art-engine/stargazers) [![license](https://img.shields.io/github/license/warengonzaga/thirdweb-art-engine.svg?style=flat-square)](https://github.com/warengonzaga/thirdweb-art-engine/blob/main/license)
 
