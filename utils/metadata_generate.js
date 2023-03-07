@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require("fs-extra");
 const path = require("path");
 const { createCanvas, loadImage } = require("canvas");
 const basePath = process.cwd();
@@ -10,6 +10,7 @@ const {
   description,
   baseUri,
 } = require(`${basePath}/src/config.js`);
+const cliArt = require(`${basePath}/modules/CLIArt.js`);
 const console = require("console");
 const canvas = createCanvas(format.width, format.height);
 const ctx = canvas.getContext("2d");
@@ -157,6 +158,7 @@ const writeMetaData = (_data) => {
 };
 
 const startCreating = async () => {
+
   const images = getImages(inputDir);
   if (images == null) {
     console.log("Please generate collection first.");
