@@ -13,6 +13,7 @@
   },
   "scripts": {
     "generate": "node index.js",
+    "build": "npm run generate",
     "rarity": "node utils/rarity.js table",
     "pixelate": "node utils/pixelate.js",
     "reset": "node utils/reset.js",
@@ -22,7 +23,7 @@
     "meta:update": "node utils/metadata_update.js",
     "meta:generate": "node utils/metadata_generate.js",
     "meta:reset": "node utils/metadata_reset.js",
-    "thirdweb": "yarn thirdweb:prepare",
+    "thirdweb": "npm run thirdweb:prepare",
     "thirdweb:prepare": "node utils/thirdweb_prepare.js",
     "thirdweb:upload": "node utils/thirdweb_upload.js"
   },
