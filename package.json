@@ -17,7 +17,6 @@
     "rarity": "node utils/rarity.js table",
     "pixelate": "node utils/pixelate.js",
     "reset": "node utils/reset.js",
-    "build": "yarn generate",
     "preview": "node utils/preview.js",
     "preview:gif": "node utils/preview_gif.js",
     "meta:update": "node utils/metadata_update.js",
