@@ -2,8 +2,8 @@ const basePath = process.cwd();
 const { MODE } = require(`${basePath}/constants/blend_mode.js`);
 
 // general metadata for EVMs
-const namePrefix = "Your Collection";
-const description = "Remember to replace this description";
+const namePrefix = "Your Collection Name";
+const description = "Replace this with your collection description.";
 const startCountFrom = 0;
 // optional, change hasBaseUri to true if your  images pre-uploaded to IPFS
 const hasBaseUri = false;
