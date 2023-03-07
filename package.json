@@ -24,7 +24,8 @@
     "meta:reset": "node utils/metadata_reset.js",
     "thirdweb": "npm run thirdweb:prepare",
     "thirdweb:prepare": "node utils/thirdweb_prepare.js",
-    "thirdweb:upload": "node utils/thirdweb_upload.js"
+    "thirdweb:upload": "node utils/thirdweb_upload.js",
+    "thirdweb:createbatch": "node utils/thirdweb_createbatch.js"
   },
   "contributors": [
     {
@@ -42,6 +43,7 @@
     "file-split-to-directory": "^2.2.0",
     "fs-extra": "^10.1.0",
     "gif-encoder-2": "^1.0.5",
+    "prompts": "^2.4.2",
     "sha1": "^1.1.1"
   }
 }
