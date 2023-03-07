@@ -207,18 +207,19 @@ Read the project's [code of conduct](./code_of_conduct.md).
 
 ## 📃 License
 
-The thirdweb Art Engine is licensed under [The MIT License](https://opensource.org/licenses/MIT).
+The thirdweb Art Engine (Legacy) is licensed under [The MIT License](https://opensource.org/licenses/MIT).
 
 ## 🍀 Sponsor
 
 > Love what I do? Send me some [love](https://github.com/sponsors/warengonzaga) or [coffee](https://buymeacoff.ee/warengonzaga)!? 💖☕
 >
 > Can't send love or coffees? 😥 Nominate me for a **[GitHub Star](https://stars.github.com/nominate)** instead!
-> Your support will help me to continue working on open-source projects like this. 🙏😇
+>
+> Your support means a lot to me as it allows me to continue working on opensource projects just like this. 🙏😇
 
 ## 📝 Author
 
-The thirdweb Art Engine is forked and maintained by **[Waren Gonzaga](https://github.com/warengonzaga)**, with the help of awesome [contributors](https://github.com/warengonzaga/thirdweb-art-engine-legacy/graphs/contributors).
+The thirdweb Art Engine (Legacy) is forked and maintained by **[Waren Gonzaga](https://github.com/warengonzaga)**, with the help of awesome [contributors](https://github.com/warengonzaga/thirdweb-art-engine-legacy/graphs/contributors).
 
 [![contributors](https://contrib.rocks/image?repo=warengonzaga/thirdweb-art-engine-legacy)](https://github.com/warengonzaga/thirdweb-art-engine-legacy/graphs/contributors)
 
