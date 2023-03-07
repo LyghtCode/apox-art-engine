@@ -215,7 +215,7 @@ The thirdweb Art Engine (Legacy) is licensed under [The MIT License](https://ope
 >
 > Can't send love or coffees? 😥 Nominate me for a **[GitHub Star](https://stars.github.com/nominate)** instead!
 >
-> Your support means a lot to me as it allows me to continue working on opensource projects just like this. 🙏😇
+> Your support means a lot to me as it allows me to dedicate my time and energy to create and maintain open-source projects that benefits the community. Thank you for supporting my mission to make technology better, accessible and inclusive for everyone.🙏😇
 
 ## 📝 Author
 
