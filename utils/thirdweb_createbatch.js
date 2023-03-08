@@ -1,5 +1,5 @@
 const basePath = process.cwd();
-const { mkdir, exists, readdir, removeSync, remove } = require('fs-extra');
+const { mkdir, exists, readdir, readFile, removeSync, remove, existsSync } = require('fs-extra');
 const { FileSplitToDirectory } = require('file-split-to-directory');
 const logger = require(`${basePath}/modules/WarenLogger.js`);
 const cliArt = require(`${basePath}/modules/CLIArt.js`);
@@ -10,6 +10,7 @@ const buildFolder = `${basePath}/build`;
 const imageFolder = `${buildFolder}/images`;
 const jsonFolder = `${buildFolder}/json`;
 const thirdwebFolder = `${buildFolder}/thirdweb`;
+const tempFolder = `${basePath}/.temp/`;
 
 // initialize FSTD
 const fstd = new FileSplitToDirectory();
@@ -35,19 +36,44 @@ const fstd = new FileSplitToDirectory();
             logger("done", "Folder created ✅")
         });
 
-        // create the batch
-        readdir(imageFolder, async (err, files) => {
-            if (err) throw err;
-            files.forEach((file) => {
-                ImageArray.push(file);
+        /**
+         * startCreateBatch to start the process of batch creation
+         * @param {boolean} isPreUploaded 
+         */
+        const startCreateBatch = (isPreUploaded) => {
+            readdir(imageFolder, async (err, files) => {
+                if (err) throw err;
+                files.forEach((file) => {
+                    ImageArray.push(file);
+                });
+                
+                const countPerBatch = ImageArray.length / response.batch;
+                fstd.directoryNameGenerator = (i) => `batch ${i + 1}`;
+                if (!isPreUploaded) {
+                    fstd.runSync(imageFolder, countPerBatch, thirdwebFolder);
+                }
+                fstd.runSync(jsonFolder, countPerBatch, thirdwebFolder);
+                logger("done", "Batch created ✅");
             });
-            
-            const countPerBatch = ImageArray.length / response.batch;
-            fstd.directoryNameGenerator = (i) => `batch ${i + 1}`;
-            fstd.runSync(imageFolder, countPerBatch, thirdwebFolder);
-            fstd.runSync(jsonFolder, countPerBatch, thirdwebFolder);
-            logger("done", "Batch created ✅");
-        });
+        }
+
+        if (!existsSync(tempFolder)) {
+
+            // start create the batch
+            startCreateBatch(false); // images are not pre-uploaded
+        
+        } else {
+
+            readFile(`${basePath}/.temp/temp.json`, (err, data) => {
+                if (err) throw err;
+                const state = JSON.parse(data);
+
+                // start creating the batch, true if images are pre-uploaded, false if not.
+                state.isPreUploaded ? startCreateBatch(true) : startCreateBatch(false);
+
+            });
+
+        }
 
         // remove image and json folder
         remove(imageFolder, (err) => { 
