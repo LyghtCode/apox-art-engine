@@ -2,8 +2,8 @@ const basePath = process.cwd();
 const { MODE } = require(`${basePath}/constants/blend_mode.js`);
 
 // general metadata for EVMs
-const namePrefix = "Your Collection Name";
-const description = "Replace this with your collection description.";
+const namePrefix = "Evil VCs";
+const description = "Culture is not your friend.";
 const startCountFrom = 0;
 // optional, change hasBaseUri to true if your  images pre-uploaded to IPFS
 const hasBaseUri = false;
@@ -18,10 +18,11 @@ const layerConfigurations = [
     growEditionSizeTo: 30,
     layersOrder: [
       { name: "background", options: { displayName: "Background" } },
-      { name: "eyeball", options: { displayName: "Eyeball" } },
-      { name: "eyecolor", options: { displayName: "Eye Color" } },
-      { name: "iris", options: { displayName: "Iris" } },
-      { name: "shine", options: { displayName: "Shine" } }
+      { name: "head", options: { displayName: "Head" } },
+      { name: "clothes", options: { displayName: "Clothes" } },
+      { name: "hair", options: { displayName: "Hair" } },
+      { name: "mouth", options: { displayName: "Mouth" } },
+      { name: "eyeAccessory", options: { displayName: "Eye-Accessory" } },
     ],
   },
 ];
