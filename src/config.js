@@ -15,7 +15,7 @@ const isLayerNameFileNameAsIs = false;
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
-    growEditionSizeTo: 30,
+    growEditionSizeTo: 100,
     layersOrder: [
       { name: "background", options: { displayName: "Background" } },
       { name: "head", options: { displayName: "Head" } },
